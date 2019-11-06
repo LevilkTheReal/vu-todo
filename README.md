@@ -1,2 +1,2 @@
-# vu-todo-frontend
+# vue-todo-frontend
 Practicing full stack
