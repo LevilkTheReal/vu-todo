@@ -1,0 +1,27 @@
+@import '../../colors.scss';
+
+.table-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.table {
+    text-align: left;
+    border: 1px solid $dark-red;
+    border-collapse: collapse;
+    overflow: hidden;
+
+    th {
+        font-size: 1.5em;
+        border-bottom: 1px solid black;
+    }
+
+    td {
+        border-bottom: 1px solid black;
+    }
+
+    tr:last-child td {
+        border-bottom: none;
+    }
+}

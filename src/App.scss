@@ -1,0 +1,11 @@
+.app-layout {
+    display: grid;
+    grid-template-rows: 10% 1fr;
+    grid-template-columns: 1fr;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    font-family: 'Dangrek'
+}
