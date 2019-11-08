@@ -5,16 +5,17 @@
                 <th>Todo</th>
             </tr>
             <tr
-            class="table-row"
             v-for="todo in todos"
             :key="todo.id"
             :todo="todo"
             >
-                <td>
-                    {{ todo.text }}
-                    <button>edit</button>
-                    <button>delete</button>
-                </td>
+              <td class="table-row">
+                  {{ todo.text }}
+                  <div class="btn-holder">
+                    <button @click="editTodo(todo.id)">edit</button>
+                    <button @click="deleteTodo(todo.id)">delete</button>
+                  </div>
+              </td>
             </tr>
         </table>
     </div>
@@ -22,27 +23,33 @@
 
 
 <script>
+  import { mapState } from 'vuex';
+
   export default {
     name: 'Table',
 
-    data() {
-      return {
-        todos: [
-          {
-            id: 1,
-            text: 'Learn Vue',
-          },
-          {
-            id: 2,
-            text: 'Learn about single-file components',
-          },
-          {
-            id: 3,
-            text: 'Fall in love',
-          },
-        ],
-      };
+    computed: {
+      ...mapState(['todos']),
     },
+
+    methods: {
+      editTodo(id) {
+        this.$emit('set-edit-id', id);
+        this.$emit('toggle-edit-modal');
+      },
+      getTodos() {
+        this.$store.dispatch('getTodos');
+      },
+      deleteTodo(id) {
+        this.$store.dispatch('deleteTodo', { id });
+        this.$store.dispatch('getTodos');
+      },
+    },
+
+    beforeMount() {
+      this.getTodos();
+    },
+
   };
 </script>
 

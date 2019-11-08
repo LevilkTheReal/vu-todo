@@ -11,17 +11,25 @@
     border: 1px solid $dark-red;
     border-collapse: collapse;
     overflow: hidden;
+    width: 500px;
 
     th {
         font-size: 1.5em;
         border-bottom: 1px solid black;
     }
 
-    td {
+    .table-row {
+        display: flex;
+        justify-content: space-between;   
         border-bottom: 1px solid black;
+
+        .btn-holder {
+            display: flex;
+            margin-left: 3rem;
+        }
     }
 
-    tr:last-child td {
+    tr:last-child .table-row {
         border-bottom: none;
     }
 }
