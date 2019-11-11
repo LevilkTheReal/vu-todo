@@ -25,9 +25,9 @@
     },
 
     methods: {
-      addTodo() {
-        this.$store.dispatch('addTodo', this.body);
-        this.$store.dispatch('getTodos');
+      async addTodo() {
+        await this.$store.dispatch('addTodo', this.body);
+        await this.$store.dispatch('getTodos');
       },
     },
   };

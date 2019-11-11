@@ -37,12 +37,12 @@
         this.$emit('set-edit-id', id);
         this.$emit('toggle-edit-modal');
       },
-      getTodos() {
-        this.$store.dispatch('getTodos');
+      async getTodos() {
+        await this.$store.dispatch('getTodos');
       },
-      deleteTodo(id) {
-        this.$store.dispatch('deleteTodo', { id });
-        this.$store.dispatch('getTodos');
+      async deleteTodo(id) {
+        await this.$store.dispatch('deleteTodo', { id });
+        await this.$store.dispatch('getTodos');
       },
     },
 

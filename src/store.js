@@ -25,16 +25,19 @@ export default new Vuex.Store({
         const todos = await getTodos();
         context.commit('SET_LOADING_STATUS');
         context.commit('SET_TODOS', todos);
+        return Promise.resolve();
       },
       async addTodo(context, todo) {
         context.commit('SET_LOADING_STATUS');
         await addTodo(todo);
         context.commit('SET_LOADING_STATUS');
+        return Promise.resolve();
       },
       async deleteTodo(context, id) {
         context.commit('SET_LOADING_STATUS');
         await deleteTodo(id);
         context.commit('SET_LOADING_STATUS');
+        return Promise.resolve();
       },
       async editTodo(context, payload) {
         const params = payload[0];
@@ -42,6 +45,7 @@ export default new Vuex.Store({
         context.commit('SET_LOADING_STATUS');
         await editTodo(params, body);
         context.commit('SET_LOADING_STATUS');
+        return Promise.resolve();
       },
   },
 });

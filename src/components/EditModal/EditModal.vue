@@ -26,9 +26,9 @@
     },
 
     methods: {
-      editTodo() {
-       this.$store.dispatch('editTodo', [{ id: this.id }, { ...this.body }]);
-       setTimeout(this.$store.dispatch('getTodos'), 1500);
+      async editTodo() {
+       await this.$store.dispatch('editTodo', [{ id: this.id }, { ...this.body }]);
+       await this.$store.dispatch('getTodos');
       },
     },
   };
